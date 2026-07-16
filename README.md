@@ -4,10 +4,6 @@ A modern, responsive, and professional portfolio website built to showcase my te
 
 🌐 **Live Website: https://abdul-alim-portfolio-sigma.vercel.app/
 
-# 📸 Portfolio Preview
-
-![Portfolio Preview](preview.png)
-
 
 # 🚀 Features
 
