@@ -2,19 +2,12 @@
 
 A modern, responsive, and professional portfolio website built to showcase my technical skills, software projects, competitive programming journey, education, achievements, and career profile.
 
-🌐 **Live Website:** https://protiger24.github.io/portfolio/
-
-> *(Update the link after enabling GitHub Pages if needed.)*
-
----
+🌐 **Live Website: https://abdul-alim-portfolio-sigma.vercel.app/
 
 # 📸 Portfolio Preview
 
 ![Portfolio Preview](preview.png)
 
-> Save a screenshot of your portfolio homepage as **preview.png** in the root directory of this repository.
-
----
 
 # 🚀 Features
 
@@ -172,73 +165,22 @@ Open the project
 index.html
 ```
 
-Or use **Live Server** in VS Code.
+Or use **Live Server**  https://abdul-alim-portfolio-sigma.vercel.app/
 
----
-
-# 📂 Folder Structure
-
-```
-portfolio/
-│
-├── assets/
-│   ├── images/
-│   ├── icons/
-│   └── screenshots/
-│
-├── css/
-│
-├── js/
-│
-├── index.html
-├── preview.png
-└── README.md
-```
-
----
-
-# 📈 Future Improvements
-
-- 🌙 Dark / Light Mode
-- 🌍 Multi-language Support
-- 📊 GitHub Contribution Graph
-- 📈 Dynamic GitHub Statistics
-- 📝 Blog Section
-- 📬 Contact Form Backend
-- 🎯 More Interactive Animations
-
----
 
 # 📬 Connect With Me
 
 ### 👨‍💻 Abdul Alim
 
-📧 Email: your-email@example.com
+📧 Email: abdulalim528260@gmail.com
 
 🐙 GitHub  
 https://github.com/ProTiger24
 
-💻 Codeforces  
-https://codeforces.com/profile/ProTiger24
 
 💼 LinkedIn  
-https://linkedin.com/in/your-linkedin-profile
+https:https://www.linkedin.com/in/abdul-alim-5452a12b1/
 
----
-
-# ⭐ Support
-
-If you like this project, consider giving it a **⭐ Star** on GitHub.
-
-It motivates me to build more open-source projects.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
 
 <div align="center">
 
