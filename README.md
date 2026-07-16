@@ -184,6 +184,5 @@ https:https://www.linkedin.com/in/abdul-alim-5452a12b1/
 
 **Made with ❤️ by Abdul Alim**
 
-⭐ Don't forget to Star this Repository ⭐
 
 </div>
