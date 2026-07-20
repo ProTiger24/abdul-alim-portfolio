@@ -1,4 +1,3 @@
-
 // TYPING ANIMATION
 
 const roles = [
@@ -48,6 +47,43 @@ window.onload = function () {
         }
     }, 2500);
 
+
+    //  MOBILE MENU TOGGLE
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
+            if (isOpen) {
+                mobileMenu.style.maxHeight = '0px';
+                menuIcon.className = 'fa-solid fa-bars';
+            } else {
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                menuIcon.className = 'fa-solid fa-xmark';
+            }
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', function () {
+                mobileMenu.style.maxHeight = '0px';
+                menuIcon.className = 'fa-solid fa-bars';
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            const nav = document.querySelector('nav');
+            if (nav && !nav.contains(e.target)) {
+                mobileMenu.style.maxHeight = '0px';
+                menuIcon.className = 'fa-solid fa-bars';
+            }
+        });
+    }
+
+
     //  SCROLL ANIMATIONS (Fade Up, Zoom, Slide Left, Slide Right)
 
     const scrollElements = document.querySelectorAll(
@@ -88,30 +124,15 @@ window.onload = function () {
     window.addEventListener('resize', handleScrollAnimation);
 
 
-    // CONTACT FORM - Formspree
-
-    const contactForm = document.querySelector('form[action*="formspree"]');
-    const formStatus = document.getElementById('form-status');
-
-    if (contactForm && formStatus) {
-        contactForm.addEventListener('submit', function (e) {
-            formStatus.textContent = '⏳ Sending...';
-            formStatus.style.color = '#60a5fa';
-        });
-    }
-
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('success')) {
-        if (formStatus) {
-            formStatus.textContent = '✅ Message sent successfully!';
-            formStatus.style.color = '#34d399';
-        }
-        const newUrl = window.location.pathname;
-        window.history.replaceState({}, document.title, newUrl);
-    }
+    // NOTE: Contact form submission is now handled entirely by the
+    // Formspree AJAX library (@formspree/ajax) via data-fs-* attributes
+    // and the formspree("initForm", ...) call at the bottom of index.html.
+    // No custom fetch/submit code is needed here — that is what was
+    // causing the page reload before (the old code looked for a
+    // form[action*="formspree"] selector that never matched anything).
 
 
-    // PHASE 9: FOOTER
+    // SMOOTH SCROLL FOR NAV LINKS
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {

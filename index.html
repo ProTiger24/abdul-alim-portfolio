@@ -44,6 +44,8 @@
         <h1 class="text-2xl font-bold gradient-text">
           &lt; AbdulAlim /&gt;
         </h1>
+
+        <!-- Desktop Nav -->
         <div class="hidden md:flex items-center gap-8 text-sm font-medium">
           <a href="#home" class="hover:text-cyan-400 transition">Home</a>
           <a href="#skills" class="hover:text-cyan-400 transition">Skills</a>
@@ -53,6 +55,25 @@
           <a href="#cp" class="hover:text-cyan-400 transition">CP</a>
           <a href="#achievement" class="hover:text-cyan-400 transition">Achievement</a>
           <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+        </div>
+
+        <!-- Hamburger Button (Mobile) -->
+        <button id="menu-btn" class="md:hidden text-white text-2xl focus:outline-none transition-transform hover:scale-110" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars" id="menu-icon"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 transition-all duration-300 ease-in-out bg-[#0f172a]/95 backdrop-blur-lg border-x border-b border-gray-800 rounded-b-2xl">
+        <div class="flex flex-col gap-1 py-4 px-4 text-sm font-medium">
+          <a href="#home" class="mobile-link hover:text-cyan-400 transition px-3 py-2 rounded-lg hover:bg-white/5">Home</a>
+          <a href="#skills" class="mobile-link hover:text-cyan-400 transition px-3 py-2 rounded-lg hover:bg-white/5">Skills</a>
+          <a href="#projects" class="mobile-link hover:text-cyan-400 transition px-3 py-2 rounded-lg hover:bg-white/5">Projects</a>
+          <a href="#resume" class="mobile-link hover:text-cyan-400 transition px-3 py-2 rounded-lg hover:bg-white/5">Resume</a>
+          <a href="#education" class="mobile-link hover:text-cyan-400 transition px-3 py-2 rounded-lg hover:bg-white/5">Education</a>
+          <a href="#cp" class="mobile-link hover:text-cyan-400 transition px-3 py-2 rounded-lg hover:bg-white/5">CP</a>
+          <a href="#achievement" class="mobile-link hover:text-cyan-400 transition px-3 py-2 rounded-lg hover:bg-white/5">Achievement</a>
+          <a href="#contact" class="mobile-link hover:text-cyan-400 transition px-3 py-2 rounded-lg hover:bg-white/5">Contact</a>
         </div>
       </div>
     </div>
@@ -820,11 +841,11 @@
           </div>
         </div>
         <div class="flex flex-col sm:flex-row justify-center gap-5 mt-10">
-          <a href="img/Alim's_resume.pdf" download
+          <a href="img/Abdul_Alim_resume.pdf" download
             class="bg-cyan-500 hover:bg-cyan-600 text-slate-900 px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-cyan-500/20">
             <i class="fa-solid fa-download mr-2"></i> Download Resume
           </a>
-          <a href="img/Alim's_resume.pdf" target="_blank"
+          <a href="img/Abdul_Alim_resume.pdf" target="_blank"
             class="border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-slate-900 px-8 py-4 rounded-xl font-semibold transition-all duration-300">
             <i class="fa-solid fa-eye mr-2"></i> View Resume
           </a>
@@ -863,20 +884,35 @@
               </p>
             </div>
           </div>
+
           <!-- Form -->
-          <form id="contact-form" class="space-y-6">
-            <input type="text" name="name" placeholder="Your Name" required
-              class="w-full bg-[#1e293b] border border-gray-700 rounded-xl px-5 py-4 outline-none focus:border-cyan-400 transition" />
-            <input type="email" name="email" placeholder="Your Email" required
-              class="w-full bg-[#1e293b] border border-gray-700 rounded-xl px-5 py-4 outline-none focus:border-cyan-400 transition" />
-            <textarea rows="5" name="message" placeholder="Your Message" required
-              class="w-full bg-[#1e293b] border border-gray-700 rounded-xl px-5 py-4 outline-none focus:border-cyan-400 transition"></textarea>
-            <button type="submit" id="submit-btn"
-              class="bg-cyan-500 hover:bg-cyan-600 transition px-8 py-4 rounded-xl font-semibold w-full shadow-lg shadow-cyan-500/20 text-slate-900">
-              Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
-            </button>
-            <p id="form-status" class="text-center text-sm mt-2"></p>
-          </form>
+          <div>
+            <div data-fs-success class="text-green-400 text-sm mb-4 hidden">✅ Thanks for your submission! I'll get back to you soon.</div>
+            <div data-fs-error class="text-red-400 text-sm mb-4 hidden">❌ Oops! There was a problem submitting your form.</div>
+
+            <form id="my-form" class="space-y-6">
+              <input type="text" id="name" name="name" placeholder="Your Name" required data-fs-field
+                class="w-full bg-[#1e293b] border border-gray-700 rounded-xl px-5 py-4 outline-none focus:border-cyan-400 transition" />
+              <span data-fs-error="name" class="text-red-400 text-xs"></span>
+
+              <input type="email" id="email" name="email" placeholder="Your Email" required data-fs-field
+                class="w-full bg-[#1e293b] border border-gray-700 rounded-xl px-5 py-4 outline-none focus:border-cyan-400 transition" />
+              <span data-fs-error="email" class="text-red-400 text-xs"></span>
+
+              <input type="text" id="subject" name="subject" placeholder="Subject" required data-fs-field
+                class="w-full bg-[#1e293b] border border-gray-700 rounded-xl px-5 py-4 outline-none focus:border-cyan-400 transition" />
+              <span data-fs-error="subject" class="text-red-400 text-xs"></span>
+
+              <textarea rows="5" id="message" name="message" placeholder="Your Message" required data-fs-field
+                class="w-full bg-[#1e293b] border border-gray-700 rounded-xl px-5 py-4 outline-none focus:border-cyan-400 transition"></textarea>
+              <span data-fs-error="message" class="text-red-400 text-xs"></span>
+
+              <button type="submit" data-fs-submit-btn
+                class="bg-cyan-500 hover:bg-cyan-600 transition px-8 py-4 rounded-xl font-semibold w-full shadow-lg shadow-cyan-500/20 text-slate-900">
+                Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -916,9 +952,25 @@
     </div>
   </footer>
 
-  <!-- Swiper JS And Javascript -->
+  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Main site JS -->
   <script src="main.js"></script>
+
+  <!-- Formspree AJAX -->
+  <script>
+    window.formspree =
+      window.formspree ||
+      function () {
+        (formspree.q = formspree.q || []).push(arguments);
+      };
+    formspree("initForm", {
+      formElement: "#my-form",
+      formId: "mzdlweal",
+    });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 
