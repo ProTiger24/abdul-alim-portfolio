@@ -15,7 +15,6 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     cursor: default;
-    /* Normal Cursor */
 }
 
 .typing-container {
@@ -46,144 +45,64 @@ body {
 }
 
 @keyframes blink {
-    50% {
-        border-color: transparent;
-    }
+    50% { border-color: transparent; }
 }
 
-/* ===== ছবির চারপাশের নিয়ন বর্ডার ও শ্যাডো ইফেক্ট ===== */
 .custom-pic-border {
     border: 3px solid rgba(34, 211, 238, 0.6);
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3),
-        0 0 40px rgba(129, 140, 248, 0.2);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3), 0 0 40px rgba(129, 140, 248, 0.2);
     transition: all 0.5s ease-in-out;
 }
-
 .custom-pic-border:hover {
     border-color: rgba(34, 211, 238, 1);
-    box-shadow: 0 0 30px rgba(34, 211, 238, 0.6),
-        0 0 60px rgba(129, 140, 248, 0.4);
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.6), 0 0 60px rgba(129, 140, 248, 0.4);
     transform: scale(1.02);
 }
 
-/* ===== পুরো ইমেজ কন্টেইনারের ফ্লোটিং অ্যানিমেশন ===== */
 .hero-img-container {
     animation: float 5s ease-in-out infinite;
 }
-
 @keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
 }
 
-/* ===== সব সেকশনের স্ক্রল প্যাডিং ফিক্স ===== */
 section {
     scroll-margin-top: 4rem;
 }
 
-/* ===== EDUCATION CARD PREMIUM HOVER EFFECT ===== */
 .education-card {
     transition: all 0.4s ease;
     cursor: pointer;
 }
-
 .education-card:hover {
     transform: translateY(-12px);
-    border-color: rgba(34, 211, 238, .4);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, .35),
-        0 0 25px rgba(34, 211, 238, .12);
+    border-color: rgba(34, 211, 238, 0.4);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35), 0 0 25px rgba(34,211,238,0.12);
 }
-
 .education-card::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 24px;
-    background: linear-gradient(135deg,
-            rgba(34, 211, 238, .15),
-            rgba(129, 140, 248, .15));
+    background: linear-gradient(135deg, rgba(34,211,238,0.15), rgba(129,140,248,0.15));
     opacity: 0;
-    transition: opacity .4s ease;
+    transition: opacity 0.4s ease;
     pointer-events: none;
 }
+.education-card:hover::before { opacity: 1; }
+.education-card i { transition: all 0.4s ease; }
+.education-card:hover i { transform: scale(1.15) rotate(5deg); }
+.education-card:hover .font-semibold { letter-spacing: 0.5px; }
 
-.education-card:hover::before {
-    opacity: 1;
-}
+.swiper { width: 100%; }
+.swiper-slide { display: flex; justify-content: center; align-items: center; }
+.swiper-button-next, .swiper-button-prev { color: #22d3ee !important; }
+.swiper-pagination-bullet { background: #94a3b8 !important; opacity: 1; }
+.swiper-pagination-bullet-active { background: #22d3ee !important; }
+.swiper-slide img { transition: 0.4s; }
+.swiper-slide img:hover { transform: scale(1.02); }
 
-.education-card i {
-    transition: all .4s ease;
-}
-
-.education-card:hover i {
-    transform: scale(1.15) rotate(5deg);
-}
-
-.education-card:hover .font-semibold {
-    letter-spacing: .5px;
-}
-
-.education-card {
-    animation: fadeUp .8s ease forwards;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===== SWIPER ===== */
-.swiper {
-    width: 100%;
-}
-
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-    color: #22d3ee !important;
-}
-
-.swiper-pagination-bullet {
-    background: #94a3b8 !important;
-    opacity: 1;
-}
-
-.swiper-pagination-bullet-active {
-    background: #22d3ee !important;
-}
-
-.swiper-slide img {
-    transition: .4s;
-}
-
-.swiper-slide img:hover {
-    transform: scale(1.02);
-}
-
-/* ============================================================
-   PHASE 6: LOADING ANIMATION
-   ============================================================ */
 #loader {
     position: fixed;
     inset: 0;
@@ -195,13 +114,11 @@ section {
     z-index: 99999;
     transition: opacity 0.8s ease, visibility 0.8s ease;
 }
-
 #loader.hide {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 }
-
 #loader h1 {
     font-size: 4.5rem;
     font-weight: 900;
@@ -211,20 +128,17 @@ section {
     background-clip: text;
     letter-spacing: 4px;
 }
-
 #loader .sub {
     font-size: 1.4rem;
     color: #94a3b8;
     margin-top: 0.3rem;
     letter-spacing: 8px;
 }
-
 .loader-dots {
     margin-top: 2.5rem;
     display: flex;
     gap: 16px;
 }
-
 .loader-dots span {
     width: 20px;
     height: 20px;
@@ -233,81 +147,99 @@ section {
     display: inline-block;
     animation: pulse-dot 1.4s infinite ease-in-out both;
 }
-
-.loader-dots span:nth-child(1) {
-    animation-delay: -0.32s;
-}
-
-.loader-dots span:nth-child(2) {
-    animation-delay: -0.16s;
-}
-
+.loader-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loader-dots span:nth-child(2) { animation-delay: -0.16s; }
 @keyframes pulse-dot {
-
-    0%,
-    80%,
-    100% {
-        transform: scale(0.4);
-        opacity: 0.4;
-    }
-
-    40% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    0%, 80%, 100% { transform: scale(0.4); opacity: 0.4; }
+    40% { transform: scale(1); opacity: 1; }
 }
 
 /* ============================================================
-   SCROLL ANIMATIONS 
+   SCROLL ANIMATIONS (Base & Staggered)
    ============================================================ */
 .scroll-fade-up {
     opacity: 0;
     transform: translateY(60px);
     transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
 .scroll-fade-up.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Staggered children – parent only fades opacity, no transform */
+.scroll-fade-up.stagger {
+    transform: none !important;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.scroll-fade-up.stagger.visible {
+    opacity: 1;
+}
+
+/* Child items start hidden and stagger in */
+.scroll-fade-up.stagger .grid > *,
+.scroll-fade-up.stagger .flex > * {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* When parent visible, children appear with stagger */
+.scroll-fade-up.visible.stagger .grid > *,
+.scroll-fade-up.visible.stagger .flex > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays */
+.scroll-fade-up.visible.stagger .grid > *:nth-child(1),
+.scroll-fade-up.visible.stagger .flex > *:nth-child(1) { transition-delay: 0.05s; }
+.scroll-fade-up.visible.stagger .grid > *:nth-child(2),
+.scroll-fade-up.visible.stagger .flex > *:nth-child(2) { transition-delay: 0.15s; }
+.scroll-fade-up.visible.stagger .grid > *:nth-child(3),
+.scroll-fade-up.visible.stagger .flex > *:nth-child(3) { transition-delay: 0.25s; }
+.scroll-fade-up.visible.stagger .grid > *:nth-child(4),
+.scroll-fade-up.visible.stagger .flex > *:nth-child(4) { transition-delay: 0.35s; }
+.scroll-fade-up.visible.stagger .grid > *:nth-child(5),
+.scroll-fade-up.visible.stagger .flex > *:nth-child(5) { transition-delay: 0.45s; }
+.scroll-fade-up.visible.stagger .grid > *:nth-child(6),
+.scroll-fade-up.visible.stagger .flex > *:nth-child(6) { transition-delay: 0.55s; }
+.scroll-fade-up.visible.stagger .grid > *:nth-child(7),
+.scroll-fade-up.visible.stagger .flex > *:nth-child(7) { transition-delay: 0.65s; }
+.scroll-fade-up.visible.stagger .grid > *:nth-child(8),
+.scroll-fade-up.visible.stagger .flex > *:nth-child(8) { transition-delay: 0.75s; }
 
 .scroll-zoom {
     opacity: 0;
     transform: scale(0.85);
     transition: opacity 1s ease, transform 1s ease;
 }
-
 .scroll-zoom.visible {
     opacity: 1;
     transform: scale(1);
 }
-
 .scroll-slide-left {
     opacity: 0;
     transform: translateX(-80px);
     transition: opacity 1s ease, transform 1s ease;
 }
-
 .scroll-slide-left.visible {
     opacity: 1;
     transform: translateX(0);
 }
-
 .scroll-slide-right {
     opacity: 0;
     transform: translateX(80px);
     transition: opacity 1s ease, transform 1s ease;
 }
-
 .scroll-slide-right.visible {
     opacity: 1;
     transform: translateX(0);
 }
 
-/* ============================================================
-    FOOTER 
-   ============================================================ */
 .footer-premium {
     background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(20px);
@@ -315,7 +247,6 @@ section {
     border-top: 1px solid rgba(34, 211, 238, 0.08);
     padding: 3rem 0 1.5rem;
 }
-
 .footer-premium .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
@@ -324,7 +255,6 @@ section {
     margin: 0 auto;
     padding: 0 2rem;
 }
-
 .footer-premium .brand h3 {
     font-size: 1.5rem;
     font-weight: 700;
@@ -333,20 +263,17 @@ section {
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.8rem;
 }
-
 .footer-premium .brand p {
     color: #94a3b8;
     font-size: 0.9rem;
     line-height: 1.7;
     max-width: 300px;
 }
-
 .footer-premium .social-icons {
     display: flex;
     gap: 0.8rem;
     margin-top: 1.2rem;
 }
-
 .footer-premium .social-icons a {
     display: inline-flex;
     align-items: center;
@@ -355,20 +282,18 @@ section {
     height: 42px;
     border-radius: 50%;
     background: rgba(30, 41, 59, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255,255,255,0.06);
     color: #94a3b8;
     font-size: 1.1rem;
     transition: all 0.3s ease;
 }
-
 .footer-premium .social-icons a:hover {
     background: rgba(34, 211, 238, 0.15);
     border-color: rgba(34, 211, 238, 0.3);
     color: #22d3ee;
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(34, 211, 238, 0.12);
+    box-shadow: 0 8px 25px rgba(34,211,238,0.12);
 }
-
 .footer-premium .footer-links-col h4 {
     color: #e2e8f0;
     font-size: 0.9rem;
@@ -376,50 +301,43 @@ section {
     margin-bottom: 1rem;
     letter-spacing: 1px;
 }
-
 .footer-premium .footer-links-col ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
 }
-
 .footer-premium .footer-links-col ul li a {
     color: #94a3b8;
     font-size: 0.85rem;
     transition: all 0.3s ease;
     text-decoration: none;
 }
-
 .footer-premium .footer-links-col ul li a:hover {
     color: #22d3ee;
     transform: translateX(4px);
     display: inline-block;
 }
-
 .footer-premium .footer-bottom {
     max-width: 1200px;
     margin: 2rem auto 0;
     padding: 1.5rem 2rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
 }
-
 .footer-premium .footer-bottom p {
     color: #64748b;
     font-size: 0.8rem;
 }
-
 .footer-premium .footer-bottom .heart {
     color: #ef4444;
     display: inline-block;
     animation: heartbeat 1.5s ease-in-out infinite;
 }
-
 .footer-premium .footer-bottom .back-top {
     display: inline-flex;
     align-items: center;
@@ -430,56 +348,29 @@ section {
     text-decoration: none;
     padding: 0.5rem 1.2rem;
     border-radius: 20px;
-    background: rgba(30, 41, 59, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(30,41,59,0.4);
+    border: 1px solid rgba(255,255,255,0.05);
 }
-
 .footer-premium .footer-bottom .back-top:hover {
     color: #22d3ee;
-    background: rgba(34, 211, 238, 0.08);
-    border-color: rgba(34, 211, 238, 0.15);
+    background: rgba(34,211,238,0.08);
+    border-color: rgba(34,211,238,0.15);
     transform: translateY(-2px);
 }
-
 @keyframes heartbeat {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.2);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
 }
-
-/* ============================================================
-   RESPONSIVE: Footer
-   ============================================================ */
 @media (max-width: 768px) {
     .footer-premium .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
         text-align: center;
     }
-
-    .footer-premium .brand p {
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .footer-premium .social-icons {
-        justify-content: center;
-    }
-
-    .footer-premium .footer-links-col ul {
-        align-items: center;
-    }
-
-    .footer-premium .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-    }
+    .footer-premium .brand p { max-width: 100%; margin: 0 auto; }
+    .footer-premium .social-icons { justify-content: center; }
+    .footer-premium .footer-links-col ul { align-items: center; }
+    .footer-premium .footer-bottom { flex-direction: column; text-align: center; }
 }
 
 /* ===== CHATBOT TYPING INDICATOR ===== */
@@ -500,14 +391,7 @@ section {
 .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
 .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
 .typing-dots span:nth-child(3) { animation-delay: 0; }
-
 @keyframes typingBounce {
-    0%, 80%, 100% { 
-        transform: scale(0.4); 
-        opacity: 0.4; 
-    }
-    40% { 
-        transform: scale(1); 
-        opacity: 1; 
-    }
+    0%, 80%, 100% { transform: scale(0.4); opacity: 0.4; }
+    40% { transform: scale(1); opacity: 1; }
 }
