@@ -562,7 +562,7 @@ const faqData = [
             'education', 'study', 'university', 'college', 'school',
             'academic background', 'degree', 'what are you studying',
             'bsc', 'hsc', 'ssc',
-            'শিক্ষা', 'পড়া', 'পড়াশোনা', 'বিশ্ববিদ্যালয়', 'কলেজ', 'মাদ্রাসা'
+            'শিক্ষা', 'পড়া', 'পড়াশোনা', 'বিশ্ববিদ্যালয়', 'কলেজ', 'মাদ্রাসা'
         ],
         answer: "আমার শিক্ষা:\n🎓 B.Sc. in CSE – BUBT (২০২৩-বর্তমান, ৪র্থ বর্ষ চলমান)।\n🎓 HSC – জশোর সরকারি এমএম কলেজ (২০২১, বিজ্ঞান)।\n🎓 SSC – আলমডাঙ্গা সিদ্দিকিয়া আলিম মাদ্রাসা (২০১৯, বিজ্ঞান)।"
     },
@@ -592,7 +592,7 @@ const faqData = [
         keywords: [
             'kormoshathi', 'kormo shathi', 'hr management system', 'employee management'
         ],
-        answer: "🧑‍💼 KormoShathi একটি সম্পূর্ণ PHP-ভিত্তিক HR ম্যানেজমেন্ট সিস্টেম। এতে AI-ভিত্তিক রিজিউমি স্ক্রিনিং, ডাইনামিক মেসেজিং সিস্টেম এবং অ্যাডমিন প্যানেল থেকে এক ক্লিকে সকল কর্মচারীর বেতন বা Salary প্রসেস করার সুবিধা রয়েছে। লাইভ: https://hr-sysytem.onrender.com/index.php"
+        answer: "🧑‍💼 KormoShathi একটি সম্পূর্ণ PHP-ভিত্তিক HR ম্যানেজমেন্ট সিস্টেম। এতে AI-ভিত্তিক রিজিউমি স্ক্রিনিং, ডাইনামিক মেসেজিং সিস্টেম এবং অ্যাডমিন প্যানেল থেকে এক ক্লিকে সকল কর্মচারীর বেতন বা Salary প্রসেস করার সুবিধা রয়েছে। লাইভ: https://hr-sysytem.onrender.com/index.php"
     },
 
     {
@@ -613,7 +613,7 @@ const faqData = [
         keywords: [
             'englishmaster', 'english master', 'ielts'
         ],
-        answer: "📚 EnglishMaster একটি চলমান প্রকল্প (IELTS প্রস্তুতি), যা HTML, CSS, Bootstrap, JavaScript, Java Spring Boot, Gemini API এবং Firebase দিয়ে তৈরি হচ্ছে। গিটহাবে কোডটি পাওয়া যাচ্ছে: https://github.com/ProTiger24/EnglishMaster.git"
+        answer: "📚 EnglishMaster একটি চলমান প্রকল্প (IELTS প্রস্তুতি), যা HTML, CSS, Bootstrap, JavaScript, Java Spring Boot, Gemini API এবং Firebase দিয়ে তৈরি হচ্ছে। গিটহাবে কোডটি পাওয়া যাচ্ছে: https://github.com/ProTiger24/EnglishMaster.git"
     },
 
     {
@@ -693,17 +693,40 @@ function initChatbot() {
     const chatInput = document.getElementById('chatInput');
     const chatSend = document.getElementById('chatSend');
     const chatMessages = document.getElementById('chatMessages');
+    const whatsappBtn = document.getElementById('whatsapp-float');
 
     if (!chatToggle || !chatWindow) return;
 
-    chatToggle.addEventListener('click', () => {
+    // চ্যাটবক্স খোলা থাকলে WhatsApp বাটন লুকাবে, বন্ধ থাকলে দেখাবে
+    function syncWhatsApp() {
+        if (!whatsappBtn) return;
+
+        const isChatOpen = !chatWindow.classList.contains('hidden');
+        whatsappBtn.classList.toggle('wa-hidden', isChatOpen);
+    }
+
+    function openChat() {
+        chatWindow.classList.remove('hidden');
+        syncWhatsApp();
+    }
+
+    function closeChat() {
+        chatWindow.classList.add('hidden');
+        syncWhatsApp();
+    }
+
+    function toggleChat() {
         chatWindow.classList.toggle('hidden');
-    });
+        syncWhatsApp();
+    }
+
+    // পেজ লোডের সময়ও একবার সিঙ্ক করে নিচ্ছি
+    syncWhatsApp();
+
+    chatToggle.addEventListener('click', toggleChat);
 
     if (chatClose) {
-        chatClose.addEventListener('click', () => {
-            chatWindow.classList.add('hidden');
-        });
+        chatClose.addEventListener('click', closeChat);
     }
 
     function sendMessage() {
@@ -788,6 +811,7 @@ function initChatbot() {
         });
     }
 
+    // চ্যাটবক্সের বাইরে ক্লিক করলে বন্ধ হবে (এবং WhatsApp ফিরে আসবে)
     document.addEventListener('click', (e) => {
 
         if (!chatWindow.classList.contains('hidden')) {
@@ -797,7 +821,7 @@ function initChatbot() {
                 chatToggle.contains(e.target);
 
             if (!isClickInside) {
-                chatWindow.classList.add('hidden');
+                closeChat();
             }
         }
 

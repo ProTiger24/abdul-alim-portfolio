@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Payslip</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .header { background: #2c5aa0; color: white; padding: 20px; text-align: center; }
+        .body { padding: 20px; border: 1px solid #ddd; }
+        .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; }
+        .total { font-weight: bold; font-size: 18px; border-bottom: 2px solid #2c5aa0; }
+        .footer { text-align: center; padding: 15px; background: #f8f9fa; }
+        .label { color: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>KormoShathi HR Solutions</h2>
+        <p>Payslip</p>
+    </div>
+    <div class="body">
+        <div style="display:flex;justify-content:space-between;">
+            <div>
+                <p><strong>Employee:</strong> shamim reja</p>
+                <p><strong>Employee ID:</strong> EMP20269107</p>
+            </div>
+            <div>
+                <p><strong>Payment Date:</strong> 2026-12-10</p>
+                <p><strong>Status:</strong> processed</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row"><span class="label">Basic Salary</span><span>৳ 25,000.00</span></div>
+        <div class="row"><span class="label">House Rent</span><span>৳ 12,500.00</span></div>
+        <div class="row"><span class="label">Medical Allowance</span><span>৳ 2,500.00</span></div>
+        <div class="row"><span class="label">Travel Allowance</span><span>৳ 1,250.00</span></div>
+        <div class="row"><span class="label">Total Allowance</span><span>৳ 16,250.00</span></div>
+        <hr>
+        <div class="row"><span class="label">Provident Fund</span><span>৳ 2,500.00</span></div>
+        <div class="row"><span class="label">Tax</span><span>৳ 1,250.00</span></div>
+        <div class="row"><span class="label">Total Deductions</span><span>৳ 3,750.00</span></div>
+        <hr>
+        <div class="row total"><span>Net Salary</span><span style="color:#2c5aa0;">৳ 37,500.00</span></div>
+    </div>
+    <div class="footer">
+        <p class="text-muted">This is a computer-generated payslip.</p>
+    </div>
+</body>
+</html>
